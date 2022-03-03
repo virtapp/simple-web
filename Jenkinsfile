@@ -7,14 +7,14 @@ pipeline{
 				
                 stage("add Repo") {
                         steps {
-                               sh "helm repo add shailendra ${repo}"
+                               sh "helm repo add simple-web ${repo}"
                             }
                     }
 				stage("Deploy to Dev") {
                         steps {
                             script{
 					container(){
-                                        sh "helm upgrade --install helm-app shailendra/sample-app --values dev/values.yaml -n dev --wait"
+                                        sh "helm upgrade --install simple-web virtapp/simple-web --values dev/values.yaml -n yevgeni --wait"
                                     }
                                 }
                             }
