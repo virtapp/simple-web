@@ -2,13 +2,13 @@ def repo="https://github.com/virtapp/simple-web.git"
 pipeline {
     agent any 
     stages {
-        stage("add Repo") {
+        stage("Clone Repository") {
                         steps {
-                               sh "cd /tmp/ && git clone ${repo}"
+                               sh "cd /tmp/ && rm -rf git ${repo} && clone ${repo}"
 			       
                             }
                     }
-				stage("Deployment") {
+				stage("Deploy") {
                         steps {
                             script{
 					container(){
