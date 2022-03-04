@@ -7,10 +7,10 @@ pipeline {
                                sh "helm repo add simple-web ${repo}"
                             }
                     }
-				stage("Deploy to Dev") {
+				stage("Deployment") {
                         steps {
                             script{
-					container(){
+					container(helm){
                                         sh "helm upgrade --install simple-web virtapp/simple-web -n yevgeni --wait"
                                     }
                                 }
