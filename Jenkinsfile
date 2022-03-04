@@ -14,19 +14,11 @@ pipeline{
                         steps {
                             script{
 					container(){
-                                        sh "helm upgrade --install simple-web virtapp/simple-web --values dev/values.yaml -n yevgeni --wait"
+                                        sh "helm upgrade --install simple-web virtapp/simple-web -n yevgeni --wait"
                                     }
                                 }
                             }
                     }
-                stage("Deploy to UAT") {
-                        steps {
-                            script{
-					container(){
-                                        sh "helm upgrade --install helm-app shailendra/sample-app --values uat/values.yaml -n uat --wait"
-                                    }
-                                }
-                            }
-                    }
+                
             }
         }
