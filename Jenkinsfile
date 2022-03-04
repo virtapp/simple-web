@@ -1,12 +1,13 @@
 def repo="https://github.com/virtapp/simple-web.git"
+def path="/tmp/"
 pipeline {
     agent any 
     stages {
         stage("Clone Repository") {
                         steps {
-                               sh "cd /tmp/"
-			       sh "rm -rf ${repo}"
-			       sh "git clone ${repo}"
+                               sh "cd ${path}"
+			       sh "sudo rm -rf ${repo}"
+			       sh "sudo git clone ${repo}"
 			       sh "ls -ls"
 			       
                             }
