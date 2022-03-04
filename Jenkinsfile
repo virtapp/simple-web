@@ -1,7 +1,7 @@
 def repo="https://github.com/virtapp/simple-web.git"
 pipeline{
 		agent{
-			label 'helm'
+			label 'simple-web'
 		}
 		stages{
 				
