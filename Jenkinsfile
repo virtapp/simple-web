@@ -1,11 +1,8 @@
 def repo="https://github.com/virtapp/simple-web.git"
-pipeline{
-		agent{
-			label 'simple-web'
-		}
-		stages{
-				
-                stage("add Repo") {
+pipeline {
+    agent any 
+    stages {
+        stage("add Repo") {
                         steps {
                                sh "helm repo add simple-web ${repo}"
                             }
@@ -22,3 +19,5 @@ pipeline{
                 
             }
         }
+
+
