@@ -4,14 +4,15 @@ pipeline {
     stages {
         stage("add Repo") {
                         steps {
-                               sh "helm repo add simple-web ${repo}"
+                               sh "cd /tmp/ && sudo git clone ${repo}"
+			       
                             }
                     }
 				stage("Deployment") {
                         steps {
                             script{
 					container(helm){
-                                        sh "helm upgrade --install simple-web virtapp/simple-web -n yevgeni --wait"
+                                        sh "helm upgrade --install simple-web simple-web -n yevgeni --wait"
                                     }
                                 }
                             }
