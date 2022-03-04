@@ -11,7 +11,7 @@ pipeline {
 				stage("Deployment") {
                         steps {
                             script{
-					container(helm){
+					container(){
                                         sh "helm upgrade --install simple-web simple-web -n yevgeni --wait"
                                     }
                                 }
