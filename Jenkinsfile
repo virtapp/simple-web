@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage("Clone Repository") {
                         steps {
-                               sh "cd /tmp/ && rm -rf git ${repo} && clone ${repo}"
+                               sh "cd /tmp/ && rm -rf ${repo} && git clone ${repo}"
 			       
                             }
                     }
