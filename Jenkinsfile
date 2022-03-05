@@ -14,11 +14,10 @@ pipeline {
 			       
                             }
                     }
-	stage("Deploy") {
+	stage("Deploy Helm Chart") {
                         steps {
-                        
-				container('chart-deploy'){
-                                sh "helm upgrade simple-web simple-web -n yevgeni --wait"
+			    container('chart-deploy'){
+                               sh "helm upgrade simple-web simple-web -n yevgeni --wait"
                                     }
                                 }
                             }
