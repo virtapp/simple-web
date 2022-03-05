@@ -1,4 +1,3 @@
-
 def repo="https://github.com/virtapp/simple-web.git"
 def path="/tmp/"
 
@@ -19,7 +18,10 @@ pipeline {
                             script{
 					container('chart-deploy'){
                                         sh "helm upgrade simple-web simple-web -n yevgeni --wait"
-						
+                                    }
+                                }
+                            }
+                    }
                 
             }
         }
