@@ -7,7 +7,7 @@ pipeline {
         stage("Clone Repository") {
                         steps {
                                sh "cd ${path}"
-			       sh "rm -rf ${repo}"
+			       sh "rm -rf simple-web"
 			       sh "git clone ${repo}"
 			       sh "ls -la"
 			       
