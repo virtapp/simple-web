@@ -6,9 +6,9 @@ pipeline {
     stages {
         stage("Clone Repository") {
                         steps {
-                               sh "cd /${path}"
-			       sh "sudo rm -rf ${repo}"
-			       sh "sudo git clone ${repo}"
+                               sh "cd ${path}"
+			       sh "rm -rf ${repo}"
+			       sh "git clone ${repo}"
 			       sh "ls -la"
 			       
                             }
