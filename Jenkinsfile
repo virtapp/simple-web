@@ -12,6 +12,8 @@ pipeline {
 			       sh "ls -la"
 			       
                             }
+                                }
+                            }
                     }
 				stage("Deploy") {
                         steps {
