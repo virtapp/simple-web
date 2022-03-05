@@ -1,4 +1,4 @@
-##########################TEST######################
+
 def repo="https://github.com/virtapp/simple-web.git"
 def path="/tmp/"
 
