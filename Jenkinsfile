@@ -1,3 +1,4 @@
+
 def repo="https://github.com/virtapp/simple-web.git"
 def path="/tmp/"
 
@@ -10,20 +11,18 @@ pipeline {
 			       sh "rm -rf simple-web"
 			       sh "git clone ${repo}"
 			       sh "ls -la"
-
-                }
-            }
-
+			       
+                            }
+                    }
 	stage("Deploy") {
-                  steps {
-                      script{
-			container('chart-deploy'){
-                        sh "helm upgrade simple-web simple-web -n yevgeni --wait"
- }
+                        steps {
+                        
+				container('chart-deploy'){
+                                sh "helm upgrade simple-web simple-web -n yevgeni --wait"
+                                    }
                                 }
                             }
                     }
                 
             }
         }
-}
