@@ -20,10 +20,8 @@ pipeline {
                             script{
 					container('chart-deploy'){
                                         sh "helm upgrade simple-web simple-web -n yevgeni --wait"
-                                  }
-                                }
-                            }
-                    }
-                
-            }
-        }
+                                 }
+           }
+       }
+   }
+}
