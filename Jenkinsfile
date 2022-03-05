@@ -18,6 +18,7 @@ pipeline {
                             script{
 					container(){
 				        sh "cd /tmp/"
+					sh "df -h"
                                         sh "helm upgrade --install simple-web simple-web -n yevgeni --wait"
                                     }
                                 }
