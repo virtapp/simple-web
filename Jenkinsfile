@@ -6,6 +6,7 @@ pipeline {
     stages {
         stage("Clone Repository") {
                         steps {
+		            script {
                                sh "cd ${path}"
 			       sh "rm -rf simple-web"
 			       sh "git clone ${repo}"
