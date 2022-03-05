@@ -10,9 +10,10 @@ pipeline {
 			       sh "rm -rf simple-web"
 			       sh "git clone ${repo}"
 			       sh "ls -la"
-			       
-                            }
-                    }
+			     }
+               }
+           }
+       }
 				stage("Deploy") {
                         steps {
                             script{
