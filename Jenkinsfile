@@ -20,7 +20,9 @@ pipeline {
                                         sh "helm upgrade simple-web simple-web -n yevgeni --wait"
                                     }
                                 }
-
+                            }
+                    }
                 
             }
         }
+
