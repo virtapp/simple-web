@@ -1,29 +1,26 @@
-def repo="https://github.com/virtapp/simple-web.git"
-def path="/tmp/"
-
 pipeline {
     agent any
     stages {
-        stage("Clone Repository") {
-                        steps {
-                               sh "cd ${path}"
-			       sh "rm -rf simple-web"
-			       sh "git clone ${repo}"
-			       sh "ls -la"
-			       
-                            }
-                    }
-				stage("Deploy") {
-                        steps {
-                            script{
-					container('chart-deploy'){
-                                        sh "helm upgrade simple-web simple-web -n yevgeni --wait"
-                                    }
-                                }
-                            }
-                    }
-                
+        stage('build') {
+            steps {
+                echo 'Hello world, this is multibranch pipeline for Dev branch'
+		sh "cd /tmp/ && rm -rf simple-web"
+		sh "git clone https://github.com/virtapp/simple-web.git"
             }
         }
-
-
+        stage('test') {
+            steps {
+                echo 'testing'
+		sh "df -h"
+		
+            }
+        }
+        stage('deploy') {
+            steps {
+                echo 'deploy'
+		script{
+		sh "helm upgrade simple-web simple-web -n yevgeni --wait"
+            }
+        }
+    }
+}
