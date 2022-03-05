@@ -2,10 +2,7 @@ def repo="https://github.com/virtapp/simple-web.git"
 def path="/tmp/"
 
 pipeline {
-    kubernetes {
-            inheritFrom 'helm'
-        }
-    }
+    agent any
     stages {
         stage("Clone Repository") {
                         steps {
@@ -19,10 +16,8 @@ pipeline {
 				stage("Deploy") {
                         steps {
                             script{
-					container(){
-				        sh "cd /tmp/"
-					sh "df -h"
-                                        sh "helm upgrade --install simple-web simple-web -n yevgeni --wait"
+					container('chart-deploy'){
+                                        sh "helm upgrade simple-web simple-web -n yevgeni --wait"
                                     }
                                 }
                             }
