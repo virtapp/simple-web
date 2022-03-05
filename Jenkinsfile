@@ -2,7 +2,10 @@ def repo="https://github.com/virtapp/simple-web.git"
 def path="/tmp/"
 
 pipeline {
-    agent any 
+    kubernetes {
+            inheritFrom 'helm'
+        }
+    }
     stages {
         stage("Clone Repository") {
                         steps {
